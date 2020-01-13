@@ -1,5 +1,9 @@
-syntax = "proto2";
+syntax = "proto3";
 
-message SimpleMessage {
-    required int32 lucky_number = 1;
+message Version {
+    string VersionString = 1;
+}
+
+message UpdateBinary {
+    bytes Rom = 1;
 }
