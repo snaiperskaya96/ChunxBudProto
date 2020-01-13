@@ -1,9 +1,17 @@
 syntax = "proto3";
 
-message Version {
+message FVersion {
     string VersionString = 1;
 }
 
-message UpdateBinary {
+message FUpdateBinary {
     bytes Rom = 1;
+}
+
+message FChunxMessage {
+    uint64 MessageType = 1;
+    oneof Message {
+        FVersion Version = 2;
+        FUpdateBinary UpdateBinary = 3;
+    }
 }
