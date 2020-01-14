@@ -1,15 +1,19 @@
 syntax = "proto3";
 
 message FVersion {
+    // Max length: 16 bytes
     string VersionString = 1;
 }
 
 message FUpdateBinary {
-    bytes Rom = 1;
+    uint32 ChunkId = 1;
+    uint32 ChunkMax = 2;
+    // Max length: 64 bytes
+    bytes RomChunk = 3;
 }
 
 message FChunxMessage {
-    uint64 MessageType = 1;
+    uint32 MessageType = 1;
     oneof Message {
         FVersion Version = 2;
         FUpdateBinary UpdateBinary = 3;
